@@ -34,6 +34,8 @@ for row in reader:
             countries[country] = (x, y)
     except: pass
 
+figure(dpi=200)
+
 if PLOT == 1:
     xlabel('firearms owned')
     ylabel('total firearm homicides')
@@ -51,7 +53,10 @@ plot(sorted(xs), [e**b * x**m for x in sorted(xs)],
      label='log(y) = %slog(x) + %s\nr^2 = %s\np = %.2g' % (round(m, 2), round(b, 2), round(r**2, 2), p))
 
 
-for label, country in [
+for country in countries:
+    annotate(country, xy = countries[country], size='xx-small')
+
+'''for label, country in [
                        ('USA', 'United States'),
                        #('Denmark', 'Denmark'),
                        #('Japan', 'Japan'),
@@ -61,7 +66,7 @@ for label, country in [
                        #('S. Korea', 'Korea, South'),
                        ]:
     try: annotate(label, xy = countries[country])
-    except KeyError: pass
+    except KeyError: pass'''
 
 legend(loc='lower right')
 savefig('figure%s.png' % PLOT)
