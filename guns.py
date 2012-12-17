@@ -48,7 +48,7 @@ scatter(xs, ys, s=size)
 m, b, r, p, se = s.linregress(log(xs), log(ys))
 print m, b, r, p, se
 plot(sorted(xs), [e**b * x**m for x in sorted(xs)],
-     label='log(y) = %slog(x) + %s\np = %.2g' % (round(m, 2), round(b, 2), p))
+     label='log(y) = %slog(x) + %s\nr^2 = %s\np = %.2g' % (round(m, 2), round(b, 2), round(r**2, 2), p))
 
 
 for label, country in [
